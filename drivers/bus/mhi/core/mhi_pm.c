@@ -622,6 +622,11 @@ static void mhi_pm_disable_transition(struct mhi_controller *mhi_cntrl,
 	if (MHI_REG_ACCESS_VALID(prev_state)) {
 		unsigned long timeout = msecs_to_jiffies(mhi_cntrl->timeout_ms);
 
+		if (system_state == SYSTEM_POWER_OFF) {
+			MHI_ERR("Do not Trigger device MHI_RESET, late shutdown\n");
+			goto tsklet_kill;
+		}
+
 		MHI_CNTRL_LOG("Trigger device into MHI_RESET\n");
 
 		write_lock_irq(&mhi_cntrl->pm_lock);
@@ -647,7 +652,7 @@ static void mhi_pm_disable_transition(struct mhi_controller *mhi_cntrl,
 
 		mhi_cntrl->initiate_mhi_reset = false;
 	}
-
+tsklet_kill:
 	MHI_CNTRL_LOG(
 		"Waiting for all pending event ring processing to complete\n");
 	mhi_event = mhi_cntrl->mhi_event;
