@@ -231,6 +231,8 @@ source "drivers/battery_v2/Kconfig"
 
 source "drivers/sensors/Kconfig"
 
+source "drivers/optics/Kconfig"
+
 source "drivers/gpu/msm/Kconfig"
 
 source "drivers/energy_model/Kconfig"
