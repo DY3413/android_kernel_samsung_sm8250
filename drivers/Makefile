@@ -197,3 +197,6 @@ obj-$(CONFIG_SENSORS_SSC)	+= sensors/
 
 # CCIC
 obj-y				+= ccic/
+
+# Motor
+obj-y				+= motor/

@@ -237,5 +237,7 @@ source "drivers/energy_model/Kconfig"
 
 source "drivers/ccic/Kconfig"
 
+source "drivers/motor/Kconfig"
+
 source "drivers/fingerprint/Kconfig"
 endmenu
