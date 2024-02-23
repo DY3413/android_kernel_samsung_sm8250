@@ -204,3 +204,6 @@ obj-$(CONFIG_REDRIVER)	        += redriver/
 
 # Motor
 obj-y				+= motor/
+
+# SPU signature verify
+obj-$(CONFIG_SPU_VERIFY) += spu_verify/
