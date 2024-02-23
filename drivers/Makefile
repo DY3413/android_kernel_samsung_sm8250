@@ -198,5 +198,8 @@ obj-$(CONFIG_SENSORS_SSC)	+= sensors/
 # CCIC
 obj-y				+= ccic/
 
+# COMBO REDRIVER
+obj-$(CONFIG_REDRIVER)	        += redriver/
+
 # Motor
 obj-y				+= motor/
